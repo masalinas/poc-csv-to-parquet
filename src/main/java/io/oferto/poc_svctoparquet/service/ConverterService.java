@@ -23,29 +23,24 @@ public class ConverterService {
                 .master("local[*]") // Use local mode with all available cores
                 .getOrCreate();
         
-        try {
-            // create a temporary file
-            Path tempFile = Files.createTempFile(null, null);
-            System.out.println(tempFile);
+        // create a temporal file
+        Path tempFile = Files.createTempFile(null, null);
+        System.out.println(tempFile);
 
-            // write a line
-            Files.write(tempFile, file.getBytes());
-            
-            // Read the CSV temporal file to Spark Dataframe
-            Dataset<Row> fileData = spark.read().format("csv")
-                    .option("header", "true")      // If CSV has a header
-                    .option("inferSchema", "true") // Infer data types
-                    .load(tempFile.toString());   
-                     
-            // Write Dataframe to parquet file
-            fileData.write()
-            	.format("parquet")
-            	.save(EXPORT_PATH + file.getName() + ".parquet");
-            
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        // write csv file bytes array to the temporal one
+        Files.write(tempFile, file.getBytes());
         
-        return "File convert successfully: " + file.getName();
+        // read the CSV temporal file to Spark Dataframe
+        Dataset<Row> fileData = spark.read().format("csv")
+                .option("header", "true")      // If CSV has a header
+                .option("inferSchema", "true") // Infer data types
+                .load(tempFile.toString());   
+                 
+        // write Spark Dataframe to parquet file
+        fileData.write()
+        	.format("parquet")
+        	.save(EXPORT_PATH + file.getName() + ".parquet");
+            
+        return "File convert successfully: " + file.getName() + ".parquet to " + EXPORT_PATH;
     }
 }
