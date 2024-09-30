@@ -27,6 +27,8 @@ public class ConverterService {
 
         // create a temporal file
         Path tempFile = Files.createTempFile(removeExtension(file.getOriginalFilename()), null);
+        tempFile.toFile().deleteOnExit();
+        
         System.out.println(tempFile);
 
         // write csv file bytes array to the temporal one
