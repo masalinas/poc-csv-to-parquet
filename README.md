@@ -8,6 +8,14 @@ Convert any csv file to parquet file format in java using:
 - Jakarta servlet 4.0.3
 - Jersey version 2.36
 
+You must to add this attribute to your VM
+
+```
+--add-exports java.base/sun.nio.ch=ALL-UNNAMED
+```
+
+![clipse configuration](./images/eclipse_vm_configuration.png "Eclipse configuration")
+
 ## Test your API
 
 To convert a csv filr to parquet file using spark we can execute this endpoint and see the results:
