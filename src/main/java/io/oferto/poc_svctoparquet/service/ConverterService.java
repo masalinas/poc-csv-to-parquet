@@ -1,4 +1,4 @@
-package io.oferto.poc_csvtoparquet.service;
+package io.oferto.poc_svctoparquet.service;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -16,7 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class ConverterService {
 	private final String EXPORT_PATH = "/Users/miguel/temp/";
 	
-    public String conver(MultipartFile file) throws IOException {
+    public String convert(MultipartFile file) throws IOException {
     	Path tempFile = Files.createTempFile(null, null);
     	Files.write(tempFile, file.getBytes());
     			

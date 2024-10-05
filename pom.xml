@@ -10,7 +10,7 @@
 	</parent>
 	
 	<groupId>io.oferto</groupId>
-	<artifactId>poc-csvtoparquet</artifactId>
+	<artifactId>poc-csv-to-parquet</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>poc-csvtoparquet</name>
 	
