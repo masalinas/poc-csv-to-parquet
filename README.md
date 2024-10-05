@@ -2,6 +2,7 @@
 
 Convert any csv file to parquet file format in java using:
 
+- JDK 17
 - SpringBoot 3.3.4
 - Spark version 3.4.0 with scala 2.13.
 - Jakarta servlet 4.0.3
