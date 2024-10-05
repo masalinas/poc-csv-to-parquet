@@ -10,17 +10,18 @@
 	</parent>
 	
 	<groupId>io.oferto</groupId>
-	<artifactId>poc-csv-to-parquet</artifactId>
+	<artifactId>poc-csvtoparquet</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<name>poc-csvtoparquet</name>
 	
-	<name>poc-csv-to-parquet</name>
-	<description>PoC svc to parquet format converter using Spark</description>
-	
+	<description>PoC csv format to parquet</description>
+
 	<properties>
 		<java.version>17</java.version>
-        <scala.version>2.13</scala.version> <!-- Use the latest compatible version -->		
-        <spark.version>4.0.0-preview2</spark.version> <!-- Use the latest compatible version -->		
-		<jakarta-servlet.version>5.0.0</jakarta-servlet.version>
+        <scala.version>2.13</scala.version> 		
+        <spark.version>3.4.0</spark.version>	
+		<jakarta-servlet.version>4.0.3</jakarta-servlet.version>
+		<jersey.version>2.36</jersey.version>
 	</properties>
 	
 	<dependencies>
@@ -29,7 +30,8 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
-       <dependency>
+	    <!-- Spark dependencies -->
+       	<dependency>
             <groupId>org.apache.spark</groupId>
             <artifactId>spark-core_${scala.version}</artifactId>
             <version>${spark.version}</version>
@@ -40,7 +42,8 @@
             <artifactId>spark-sql_${scala.version}</artifactId>
             <version>${spark.version}</version>
         </dependency>
-	    
+        
+        <!-- Third dependencies -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
@@ -55,7 +58,7 @@
 	</dependencies>
 
 	<build>
-		<plugins>
+		<plugins>		
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
@@ -70,4 +73,5 @@
 			</plugin>
 		</plugins>
 	</build>
+
 </project>
