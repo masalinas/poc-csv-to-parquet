@@ -1,6 +1,11 @@
 # Description
 
-Convert any csv file to parquet file format in java using the last SpringBoot version 3.3.x with the last spark version 4.0.0.x. In this case we must to update the servlet version 6.x used by Spring with the previous one 5.x used by Spark using the property called **jakarta-servlet.version** with the value 5.0.0. Check the pom file of the project.
+Convert any csv file to parquet file format in java using:
+
+- SpringBoot 3.3.4
+- Spark version 3.4.0 with scala 2.13.
+- Jakarta servlet 4.0.3
+- Jersey version 2.36
 
 ## Test your API
 
