@@ -8,7 +8,7 @@ Convert any csv file to parquet file format in java using:
 - Jakarta servlet 4.0.3
 - Jersey version 2.36
 
-You must to add this attribute to your VM
+You must to add this argument to your VM:
 
 ```
 --add-exports java.base/sun.nio.ch=ALL-UNNAMED
